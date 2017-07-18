@@ -1,3 +1,6 @@
+div.canvas div.block{
+	overflow: hidden;
+}
 div.canvas div.block>img,
 div.canvas div.block>span{
 	position: absolute;
