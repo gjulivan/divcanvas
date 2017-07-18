@@ -13,12 +13,31 @@ Below are the basic features for the application:
 
 - the created objects on canvas can be saved and repopulated on refresh browser
 
-## Resources
+## Codes Walkthrough
 
+- javascript files are bundled using browserify and babelify to allow using import-export module
 
-## Requirements
+file structure :
+```
+index.js
+```
+initialize code structure, load images, linked drag handles
 
-## How to Submit
+```
+logic.js
+```
+handles logic and DOM manipulation
+
+```
+api.js
+```
+handles API call to and from server
+
+```
+helper.js
+```
+centralized helper functions
+
 
 ## How To Install
 
@@ -48,6 +67,18 @@ GET /images
 
 ```
 POST /uploads
+```
+
+#### save canvas div inner HTML element
+
+```
+POST /save
+```
+
+#### load previously saved canvas div inner HTML element
+
+```
+POST /load
 ```
 
 ### Note
