@@ -4,4 +4,8 @@
         <!-- Add images and texts to here -->
     
         <!-- Add images and texts to here -->
-    <img id="img_obj_78" draggable="true" src="http://localhost:3000/images/uploads-1462948470584.png" class="" style="left: -30px; top: 25px;"><img id="img_obj_8" draggable="true" src="http://localhost:3000/images/uploads-1462948459604.png" class="" style="left: 251px; top: 384px;"><img id="img_obj_98" draggable="true" src="http://localhost:3000/images/uploads-1462948453043.png" class="" style="left: 285px; top: 60px;"><span id="text_obj_74" draggable="true" class="active" style="left: 146px; top: 166px;">hepy yayaya</span>
+    
+        <!-- Add images and texts to here -->
+    
+        <!-- Add images and texts to here -->
+    <img id="img_obj_78" draggable="true" src="http://localhost:3000/images/uploads-1462948470584.png" class="" style="left: -30px; top: 25px;"><img id="img_obj_75" draggable="true" src="http://localhost:8000/images/uploads-1462948459604.png" class="" style="left: 120px; top: 186px;"><img id="img_obj_6" draggable="true" src="http://localhost:8000/images/uploads-1462948470584.png" class="active">

@@ -1,6 +1,7 @@
 ## Instructions
 
 a single page application that allows user to add text and image into canvas.
+live version is available at http://divcanvas.azurewebsites.net/
 
 ## Features
 
@@ -17,7 +18,7 @@ Below are the basic features for the application:
 
 - javascript files are bundled using browserify and babelify to allow using import-export module
 
-file structure :
+#### file structure :
 ```
 index.js
 ```
@@ -37,6 +38,9 @@ handles API call to and from server
 helper.js
 ```
 centralized helper functions
+
+#### load save :
+file saved on the server as text file on `/save/progress.txt` 
 
 
 ## How To Install

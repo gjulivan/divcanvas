@@ -4,7 +4,7 @@
   "description": "package for js candidate test",
   "main": "index.js",
   "scripts": {
-    "start": "node httpserver.js",
+    "start": "node server.js",
     "build": "browserify ./src/index.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]"
   },
   "author": "jun",

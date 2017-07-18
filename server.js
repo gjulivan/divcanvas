@@ -1,106 +1,90 @@
 'use strict'
 
-const express = require( 'express' );
-const multer = require( 'multer' );
-const fs = require( 'fs' );
-const junk = require( 'junk' );
-let app = express();
-var bodyParser = require('body-parser');
+/**
+ * Module dependencies.
+ */
 
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use( express.static('./') );
+var app = require('./server/app');
+var http = require('http');
 
-// define file name and destination to save
-let storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, __dirname +  '/images')
-  },
-  filename: (req, file, cb) => {
-    let ext = file.originalname.split( '.' );
-    ext = ext[ext.length - 1];
-    cb(null, 'uploads-' + Date.now() + '.' + ext);
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '8000');
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app);
+var debug = require('debug')('divcanvas:server');
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
   }
-});
 
-// define what file type to accept
-let filter = ( req, file, cb ) => {
-  if ( file.mimetype == 'image/jpeg' || file.mimetype == 'image/png' ) {
-    cb( null, true );
-  } else {
-    cb( 'Failed: format not supported' );
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
   }
 }
 
-// set multer config
-let upload = multer( {
-  storage: storage,
-  fileFilter: filter
-}).single( 'upload' );
+/**
+ * Event listener for HTTP server "listening" event.
+ */
 
-/* ===============================
-  ROUTE
- ============================== */
-
-// route for file upload
-app.post( '/uploads', ( req, res ) => {
-    console.log('UPLOADS!');
-  upload( req, res, err => {
-    if ( err ) {
-      console.log( err )
-      res.status(400).json( {message: err} );
-    } else {
-      res.status(200).json( {
-        file: req.protocol + '://' + req.get('host') + '/images/' + req.file.filename
-      } )
-    }
-  })
-})
-
-app.get( '/images', ( req, res ) => {
-  let file_path = req.protocol + '://' + req.get('host') + '/images/';
-  let files = fs.readdirSync( './images/' );
-  files = files
-          .filter( junk.not ) // remove .DS_STORE etc
-          .map( f => file_path + f ); // map with url path
-  res.json( files );
-});
-
-//save canvas element, to be loaded on refresh
-app.post('/save', function(request, respond) {
-    let body = '';
-    let filePath = __dirname + '/save/progress.txt';
- 
-    var data = request.body.data;
-    
-     fs.writeFile(filePath, data, function(error) {
-         if (error) {
-           
-         } else {
-           
-         }
-    });
-});
-
-
-//load saved file
-app.post('/load',function(request,respond){
-  let filePath = __dirname + '/save/progress.txt';
-  fs.readFile(filePath, 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    respond.json( data );
-   // console.log(data);
-  });
-})
-
-// general route
-app.get( '/', ( req, res ) => {
-  res.sendFile( __dirname + '/index.html' );
-})
-
-var server = app.listen( 8000, _ => {
-  console.log( 'server started. listening to 8000' );
-})
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
