@@ -4,7 +4,7 @@
   "description": "package for js candidate test",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node httpserver.js",
     "build": "browserify ./src/index.js -o bundle.js -t [ babelify --presets [ es2015 react ] ]"
   },
   "author": "jun",
@@ -12,9 +12,11 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.13.4",
     "jquery": "^2.2.4",
     "junk": "^1.0.2",
+    "morgan": "^1.8.2",
     "multer": "^1.1.0",
     "nodemon": "^1.9.1"
   },

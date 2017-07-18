@@ -11477,7 +11477,7 @@ function UploadImages(input) {
 		_axios2.default['post']('/uploads', formData).then(function (data) {
 			resolve(data);
 		}).catch(function (err) {
-			reject(data);
+			reject(err);
 		});
 	});
 }
@@ -11497,7 +11497,7 @@ function LoadProgress() {
 				reject(data.data);
 			}
 		}).catch(function (err) {
-			reject(data);
+			reject(err);
 		});
 	});
 }

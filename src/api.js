@@ -27,7 +27,7 @@ export function UploadImages(input){
 			formData.append('upload',input[0].files[0]);
 			axios['post']('/uploads',  formData )
 					.then((data)=>{resolve(data)})
-					.catch((err)=>{reject(data)});
+					.catch((err)=>{reject(err)});
 	  });
  	
 }
@@ -50,6 +50,6 @@ export function LoadProgress(){
 							reject(data.data);
 						}
 					})
-					.catch((err)=>{reject(data)});
+					.catch((err)=>{reject(err)});
 	  });
 }

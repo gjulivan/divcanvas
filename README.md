@@ -47,6 +47,12 @@ To set up the environment dependencies ( node version 5++ )
 $ npm install
 ```
 
+To build the bundle
+
+```
+$ npm run build
+```
+
 To run the node server
 
 ```

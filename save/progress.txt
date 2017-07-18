@@ -4,10 +4,4 @@
         <!-- Add images and texts to here -->
     
         <!-- Add images and texts to here -->
-    
-        <!-- Add images and texts to here -->
-    
-        <!-- Add images and texts to here -->
-    
-        <!-- Add images and texts to here -->
-    <img id="img_obj_18" draggable="true" src="http://localhost:8000/images/uploads-1462948459604.png" class=""><span id="text_obj_0" draggable="true" class="">Hello, what do you want to write?</span><img id="img_obj_11" draggable="true" src="http://localhost:8000/images/uploads-1462948459604.png" class="" style="left: 40px; top: 219px;"><img id="img_obj_4" draggable="true" src="http://localhost:8000/images/uploads-1462948453043.png" class="" style="left: 301px; top: 197px;"><img id="img_obj_82" draggable="true" src="http://localhost:8000/images/uploads-1462948491987.png" class="active" style="left: 191px; top: 395px;">
+    <img id="img_obj_78" draggable="true" src="http://localhost:3000/images/uploads-1462948470584.png" class="" style="left: -30px; top: 25px;"><img id="img_obj_8" draggable="true" src="http://localhost:3000/images/uploads-1462948459604.png" class="" style="left: 251px; top: 384px;"><img id="img_obj_98" draggable="true" src="http://localhost:3000/images/uploads-1462948453043.png" class="" style="left: 285px; top: 60px;"><span id="text_obj_74" draggable="true" class="active" style="left: 146px; top: 166px;">hepy yayaya</span>
