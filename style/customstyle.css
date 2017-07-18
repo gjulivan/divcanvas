@@ -1,0 +1,16 @@
+div.canvas div.block>img,
+div.canvas div.block>span{
+	position: absolute;
+	max-width: 600px;
+	max-height: 600px;
+}
+
+div.canvas div.block>.active{
+	border: 1px solid gray;
+}
+
+div.canvas-control img{
+	cursor: pointer;
+	max-width: 32px;
+	max-height: 32px;
+}
