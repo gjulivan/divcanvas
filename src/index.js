@@ -31,10 +31,10 @@ function loadSavedElement(){
 	})
 }
 
-//retrieve images, and loaded as list on the left side nav bar
+//retrieve images, and load it as list on the left side nav bar
 function initImagesList(){
 	GetImages().then((data)=>{
-		var parentImgContainer =  $('.image ul.list-unstyled');
+		let parentImgContainer =  $('.image ul.list-unstyled');
 		parentImgContainer.empty();
         $.each(data, (i,img)=>{
         	parentImgContainer.append(`<li>

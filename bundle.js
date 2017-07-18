@@ -11569,7 +11569,7 @@ function loadSavedElement() {
   });
 }
 
-//retrieve images, and loaded as list on the left side nav bar
+//retrieve images, and load it as list on the left side nav bar
 function initImagesList() {
   (0, _api.GetImages)().then(function (data) {
     var parentImgContainer = (0, _jquery2.default)('.image ul.list-unstyled');
